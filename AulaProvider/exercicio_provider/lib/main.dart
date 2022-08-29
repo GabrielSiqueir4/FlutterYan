@@ -10,7 +10,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => Conversor()),  
+        ChangeNotifierProvider(create: (context) => ConversorModel(centimetros: 00, descricao: 'teste', jarda: 00, metros: 00, milha: 00,milimetro: 00,nome: 'teste', pes: 00, polegadas: 00, quilometros: 100)),  
       ],
       child: AppConversor(),            // passa a aplicação que ira iniciar como filho do provider
     ),
@@ -21,6 +21,7 @@ class AppConversor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       title: "Conversor de medidas",
       home: ConversorView(),
