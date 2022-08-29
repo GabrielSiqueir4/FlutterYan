@@ -1,0 +1,3 @@
+
+
+- Nesta pasta Screens, ira conter todas as telas do aplicativo, onde ira trazer todos os dados que serão buscados pelo provider la da pasta (MODELS), aonde contem nosso conversor, que esta instanciado no Main do aplicativo.

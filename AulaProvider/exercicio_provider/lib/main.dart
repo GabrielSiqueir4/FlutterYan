@@ -1,16 +1,18 @@
 import 'package:exercicio_provider/src/models/conversor_model.dart';
-import 'package:exercicio_provider/src/view/conversor_view.dart';
-import 'package:exercicio_provider/src/view/log_view.dart';
+import 'package:exercicio_provider/src/views/consersor_view.dart';
+import 'package:exercicio_provider/src/views/log_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+//* ChangeNotifierProvider : provedor de notificação  de mudança - objetivo do provider é instanciar somente   uma vez, e conseguir utilizar a classe (conversor) no app inteiro
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => Conversor()),
+        ChangeNotifierProvider(create: (context) => Conversor()),  
       ],
-      child: AppConversor(),
+      child: AppConversor(),            // passa a aplicação que ira iniciar como filho do provider
     ),
   );
 }
@@ -19,6 +21,7 @@ class AppConversor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark(),
       title: "Conversor de medidas",
       home: ConversorView(),
       routes: {

@@ -6,7 +6,7 @@ class Conversor extends ChangeNotifier {
   String? _nome;
   String? _medidaimperial;
 
-  List<String> _medidas = <String>[];
+  final List<String> _medidas = <String>[];
 
   void set nome(String? nome) {
     _nome = nome;
@@ -20,7 +20,7 @@ class Conversor extends ChangeNotifier {
 
   void set valor(double? valor) {
     _valor = valor;
-    notifyListeners(); // 
+    notifyListeners(); 
   }
 
   void set medidaimperial(String? medidaimperial) {
