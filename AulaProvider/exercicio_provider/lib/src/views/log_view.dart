@@ -10,14 +10,14 @@ class LogView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Log'),
-        ),
-        body: Center(
-          child: TextField(
-            obscureText: true,
-            decoration: InputDecoration()
-          ),
-        ));
+      appBar: AppBar(
+        title: const Text('Log'),
+      ),
+      body: Center(
+          child: Text(
+        'Log Das Informações',
+        style: TextStyle(fontSize: 25),
+      )),
+    );
   }
 }

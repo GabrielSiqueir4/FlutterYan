@@ -1,6 +1,7 @@
-import 'package:exercicio_provider/src/models/conversor_model.dart';
-import 'package:exercicio_provider/src/views/consersor_view.dart';
-import 'package:exercicio_provider/src/views/log_view.dart';
+import 'package:exercicio_provider/src/conversor_repository.dart/medida_repository.dart';
+import 'package:exercicio_provider/src/models/medida_model.dart';
+import 'package:exercicio_provider/src/views/bottom_navigation_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,9 +11,19 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => ConversorModel(centimetros: 00, descricao: 'teste', jarda: 00, metros: 00, milha: 00,milimetro: 00,nome: 'teste', pes: 00, polegadas: 00, quilometros: 100)),  
+        ChangeNotifierProvider(
+          create: (context) {
+            MedidaImperialRepository.tabela;
+          },
+        ),
+        ChangeNotifierProvider(
+          create: (context) {
+            MedidaNormalRepository.tabela;
+          },
+        )
       ],
-      child: AppConversor(),            // passa a aplicação que ira iniciar como filho do provider
+      child: AppConversor(),
+      // passa a aplicação que ira iniciar como filho do provider
     ),
   );
 }
@@ -24,11 +35,7 @@ class AppConversor extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       title: "Conversor de medidas",
-      home: ConversorView(),
-      routes: {
-        "/Conversor": (context) => ConversorView(),
-        "/Log":(context) =>LogView(),
-      },
+      home: HomePage(),
     );
   }
 }
