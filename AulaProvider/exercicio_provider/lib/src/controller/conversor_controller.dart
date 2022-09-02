@@ -1,7 +1,0 @@
-class ConversorController {
- //List<>
-
- NomeController(){
-
- }
-}

@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: PageView(
         controller: pc,
+        // ignore: sort_child_properties_last
         children: [
           ConversorView(),
           LogView(),
@@ -42,14 +43,21 @@ class _HomePageState extends State<HomePage> {
         // ignore: prefer_const_literals_to_create_immutables
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.calculate),
+            icon: Icon(Icons.calculate, 
+            color: Colors.blue,
+            ),
             label: 'Conversor',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
+            icon: Icon(Icons.list,
+            color: Colors.blue,
+            ),
             label: 'Log',
+
           ),
+              
         ],
+        
         onTap: ((pagina) {
           pc.animateToPage(pagina,
               duration: Duration(milliseconds: 400), curve: Curves.ease);

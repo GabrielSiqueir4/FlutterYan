@@ -1,7 +1,5 @@
-import 'package:exercicio_provider/src/conversor_repository.dart/medida_repository.dart';
-import 'package:exercicio_provider/src/models/medida_model.dart';
+import 'package:exercicio_provider/src/controller/calculo_controller.dart';
 import 'package:exercicio_provider/src/views/bottom_navigation_view.dart';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,18 +10,10 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) {
-            MedidaImperialRepository.tabela;
-          },
+          create: ((context) => CalculoController()),
         ),
-        ChangeNotifierProvider(
-          create: (context) {
-            MedidaNormalRepository.tabela;
-          },
-        )
       ],
       child: AppConversor(),
-      // passa a aplicação que ira iniciar como filho do provider
     ),
   );
 }

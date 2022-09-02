@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 class MedidaNormalModel extends ChangeNotifier {
   String descricao;
   double quilometros;
-
   double metros;
-
   String nome;
 
   MedidaNormalModel({
