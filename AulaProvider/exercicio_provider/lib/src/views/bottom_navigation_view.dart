@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:exercicio_provider/src/views/consersor_view.dart';
 import 'package:exercicio_provider/src/views/log_view.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +32,7 @@ class _HomePageState extends State<HomePage> {
         // ignore: sort_child_properties_last
         children: [
           ConversorView(),
-          LogView(),
+          Log(),
         ],
         onPageChanged: setPaginaAtual,
       ),
@@ -42,25 +40,25 @@ class _HomePageState extends State<HomePage> {
         currentIndex: paginaAtual,
         // ignore: prefer_const_literals_to_create_immutables
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calculate, 
-            color: Colors.blue,
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.calculate,
+              color: Colors.blue,
             ),
             label: 'Conversor',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list,
-            color: Colors.blue,
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.list,
+              color: Colors.blue,
             ),
             label: 'Log',
-
           ),
-              
         ],
-        
+
         onTap: ((pagina) {
           pc.animateToPage(pagina,
-              duration: Duration(milliseconds: 400), curve: Curves.ease);
+              duration: const Duration(milliseconds: 400), curve: Curves.ease);
         }),
       ),
     );

@@ -1,5 +1,8 @@
-import 'package:exercicio_provider/src/controller/calculo_controller.dart';
+import 'package:exercicio_provider/src/controller/ConversaoController.dart';
+import 'package:exercicio_provider/src/controller/SalvarLogController.dart';
 import 'package:exercicio_provider/src/views/bottom_navigation_view.dart';
+import 'package:exercicio_provider/src/views/consersor_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,9 +12,8 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: ((context) => CalculoController()),
-        ),
+        ChangeNotifierProvider(create: ((context) => ConversaoController())),
+        ChangeNotifierProvider(create: (context) => SalvaLogController())
       ],
       child: AppConversor(),
     ),

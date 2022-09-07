@@ -1,4 +1,0 @@
-Regra de negocio da aplicação
-
-
-Pasta onde o modelo do conversor esta instanciada, aqui que esta nosso get e set da aplicação
