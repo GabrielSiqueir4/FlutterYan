@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class CameraPage extends StatefulWidget {
-  const CameraPage({super.key});
+class AudioPage extends StatefulWidget {
+  const AudioPage({super.key});
 
   @override
-  State<CameraPage> createState() => _CameraPageState();
+  State<AudioPage> createState() => _AudioPageState();
 }
 
-class _CameraPageState extends State<CameraPage> {
+class _AudioPageState extends State<AudioPage> {
   @override
   void initState() {
     final firebaseMessaging = FCM();
@@ -22,7 +22,7 @@ class _CameraPageState extends State<CameraPage> {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text('Camera')],
+        children: [Text('Audio')],
       ),
     );
   }

@@ -1,3 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'dart:ui';
+
 import 'package:atividade01/COMPONENTS/notification.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +12,6 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
@@ -17,18 +20,25 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-           Text('faz somente sua tela daqui para frente')
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.black,
+              Colors.blue,
+            ],
+            begin: Alignment.topRight,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Text('faz somente sua tela daqui para frente')],
+          ),
         ),
       ),
     );

@@ -1,4 +1,8 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:atividade01/PAGES/Audio_Page.dart';
+import 'package:atividade01/PAGES/Camera_Page.dart';
+import 'package:atividade01/PAGES/Camera_Vandeco.dart';
+import 'package:atividade01/PAGES/Galeria_Page.dart';
 import 'package:atividade01/PAGES/Home_Page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -15,6 +19,7 @@ class _NavigationState extends State<Navigation> {
   int paginaAtual = 0;
   late PageController pc;
 
+  @override
   void initState() {
     super.initState();
     pc = PageController(initialPage: paginaAtual);
@@ -30,17 +35,21 @@ class _NavigationState extends State<Navigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        controller: pc,    
+        controller: pc,
+        onPageChanged: setPaginaAtual,    
         children: [
          HomePage(),
+         CameraScreen(),
          
+         AudioPage(),
         ],
-        onPageChanged: setPaginaAtual,
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: paginaAtual,
-        backgroundColor: Color.fromARGB(255, 95, 95, 95),
+        fixedColor: Colors.black,
+        
        
+        // ignore: prefer_const_literals_to_create_immutables
         items: [
           BottomNavigationBarItem(
             icon: Icon(
@@ -51,18 +60,27 @@ class _NavigationState extends State<Navigation> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.image,
+              Icons.camera_alt_outlined,
               color:   Colors.blueAccent,
             ),
-            label: 'APOD',
+            label: 'Camera',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.star,
+              Icons.image_search_rounded,
               color:  Colors.blueAccent,
             ),
-            label: 'Favoritos',
+            label: 'Galeria',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.audiotrack_outlined,
+              color:  Colors.blueAccent,
+            ),
+            label: 'Audio',
+            
+          ),
+          
         ],
         onTap: (pagina) {
           pc.animateToPage(pagina,
