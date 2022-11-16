@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:atividade01/PAGES/Audio_Page.dart';
-import 'package:atividade01/PAGES/Camera_Page.dart';
 import 'package:atividade01/PAGES/Camera_Vandeco.dart';
 import 'package:atividade01/PAGES/Galeria_Page.dart';
 import 'package:atividade01/PAGES/Home_Page.dart';
@@ -19,6 +18,8 @@ class _NavigationState extends State<Navigation> {
   int paginaAtual = 0;
   late PageController pc;
 
+  String? get imagePath => null;
+
   @override
   void initState() {
     super.initState();
@@ -36,51 +37,48 @@ class _NavigationState extends State<Navigation> {
     return Scaffold(
       body: PageView(
         controller: pc,
-        onPageChanged: setPaginaAtual,    
+        onPageChanged: setPaginaAtual,
         children: [
-         HomePage(),
-         CameraScreen(),
-         
-         AudioPage(),
+          HomePage(),
+          CameraScreen(),
+          FotoScreen(imagePath!),
+          AudioPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: paginaAtual,
         fixedColor: Colors.black,
-        
-       
+
         // ignore: prefer_const_literals_to_create_immutables
         items: [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color:  Colors.blueAccent,
+              color: Colors.blueAccent,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.camera_alt_outlined,
-              color:   Colors.blueAccent,
+              color: Colors.blueAccent,
             ),
             label: 'Camera',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.image_search_rounded,
-              color:  Colors.blueAccent,
+              color: Colors.blueAccent,
             ),
             label: 'Galeria',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.audiotrack_outlined,
-              color:  Colors.blueAccent,
+              color: Colors.blueAccent,
             ),
             label: 'Audio',
-            
           ),
-          
         ],
         onTap: (pagina) {
           pc.animateToPage(pagina,
