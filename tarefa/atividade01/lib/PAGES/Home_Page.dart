@@ -37,7 +37,12 @@ class _HomePageState extends State<HomePage> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text('faz somente sua tela daqui para frente')],
+            children: [
+              Text(
+                'Aplicativo para tirar Fotos e Gravar audio.',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              )
+            ],
           ),
         ),
       ),

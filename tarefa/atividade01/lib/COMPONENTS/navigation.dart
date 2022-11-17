@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:atividade01/PAGES/Audio_Page.dart';
-import 'package:atividade01/PAGES/Camera_Vandeco.dart';
-import 'package:atividade01/PAGES/Galeria_Page.dart';
+import 'package:atividade01/PAGES/Camera_page.dart';
+import 'package:atividade01/PAGES/Foto_Screen.dart';
 import 'package:atividade01/PAGES/Home_Page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -18,7 +18,7 @@ class _NavigationState extends State<Navigation> {
   int paginaAtual = 0;
   late PageController pc;
 
-  String? get imagePath => null;
+ 
 
   @override
   void initState() {
@@ -41,7 +41,6 @@ class _NavigationState extends State<Navigation> {
         children: [
           HomePage(),
           CameraScreen(),
-          FotoScreen(imagePath!),
           AudioPage(),
         ],
       ),
@@ -64,13 +63,6 @@ class _NavigationState extends State<Navigation> {
               color: Colors.blueAccent,
             ),
             label: 'Camera',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.image_search_rounded,
-              color: Colors.blueAccent,
-            ),
-            label: 'Galeria',
           ),
           BottomNavigationBarItem(
             icon: Icon(

@@ -1,8 +1,8 @@
-import 'package:atividade01/PAGES/Galeria_Page.dart';
+import 'package:atividade01/PAGES/Foto_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:path/path.dart';
-import 'package:provider/provider.dart';
+
 
 class CameraScreen extends StatefulWidget {
   @override
@@ -52,14 +52,17 @@ class _CameraScreenState extends State<CameraScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tire a foto'),
+        
+        title: Text('Tire sua Foto'),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            cameraPreview,
-           
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              cameraPreview,
+             
+            ],
+          ),
         ),
       ),
       floatingActionButton: Padding(

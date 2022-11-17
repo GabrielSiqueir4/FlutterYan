@@ -38,14 +38,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_messaging: ^14.1.0
   firebase_core: ^2.2.0
-  provider:
-  timezone: ^0.8.0
   flutter_native_timezone: ^2.0.0
   flutter_local_notifications: ^9.4.0
   image_picker: ^0.8.6
   image_gallery_saver: ^1.7.1
   gallery_saver: ^2.3.2
   camera: ^0.10.0+4
+  share_plus: ^6.3.0
+ 
 
 dev_dependencies:
   flutter_test:

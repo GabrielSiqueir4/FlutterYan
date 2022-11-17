@@ -1,20 +1,19 @@
 import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:gallery_saver/gallery_saver.dart';
-import 'package:provider/provider.dart';
-
+import 'package:share_plus/share_plus.dart';
 
 @immutable
 class FotoScreen extends StatelessWidget {
   static const _actionTitles = [
-    'A Foto Foi Salva na Galeria!',
-    '',
-    'Upload Video'
+    'A Foto Foi Salva na Galeria!'
+  
   ];
   final String imagePath;
 
@@ -37,43 +36,41 @@ class FotoScreen extends StatelessWidget {
     );
   }
 
-  void _salvaGaleria(BuildContext context) async {  
-    
+  void _salvaGaleria(BuildContext context) async {}
+  
+  void _compartilha(BuildContext context, File file) {
+    Share.shareXFiles([XFile(file.path)],
+        text: "Se liga nesta foto que tirei com meu aplicativo!!!!",
+        subject: "PhotoShare");
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tratar Imagem'),
+        title: const Text('Pre-View Imagem'),
       ),
       body: Container(
         child: Image.file(File(imagePath)),
       ),
-      floatingActionButton: ExpandableFab(
-        distance: 112.0,
-        children: [
-          ActionButton(
-              icon: const Icon(Icons.insert_photo),
-              onPressed: () async {
-                _salvaGaleria(context);
-              }),
-          ActionButton(
-              icon: const Icon(Icons.account_box),
-              onPressed: () async {
-                _showAction(context, 1);
-              }),
-          ActionButton(
-            onPressed: () => _showAction(context, 2),
-            icon: const Icon(Icons.videocam),
-          ),
-        ],
-      ),
+      floatingActionButton: ExpandableFab(distance: 112.0, children: [
+        ActionButton(
+            icon: const Icon(Icons.save),
+            onPressed: () async {
+              await GallerySaver.saveImage(imagePath);
+              _showAction(context, 0);
+            }),
+        ActionButton(
+            icon: const Icon(Icons.share),
+            onPressed: () async {
+             _compartilha(context, File(imagePath));
+            }),
+      ]),
     );
   }
 }
+ 
 
-/*Código do Floating Action Button*/
 @immutable
 class ExpandableFab extends StatefulWidget {
   const ExpandableFab({
@@ -158,9 +155,7 @@ class _ExpandableFabState extends State<ExpandableFab>
             onTap: _toggle,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.close, color: Colors.blue
-                  //Theme.of(context).primaryColor,
-                  ),
+              child: Icon(Icons.close, color: Colors.blue),
             ),
           ),
         ),
@@ -276,28 +271,6 @@ class ActionButton extends StatelessWidget {
         onPressed: onPressed,
         icon: icon,
         color: theme.colorScheme.onSecondary,
-      ),
-    );
-  }
-}
-
-@immutable
-class FakeItem extends StatelessWidget {
-  const FakeItem({
-    super.key,
-    required this.isBig,
-  });
-
-  final bool isBig;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
-      height: isBig ? 128.0 : 36.0,
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-        color: Colors.grey.shade300,
       ),
     );
   }
