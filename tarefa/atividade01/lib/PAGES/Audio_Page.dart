@@ -1,29 +1,76 @@
-import 'package:atividade01/COMPONENTS/notification.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'dart:io';
 
-class AudioPage extends StatefulWidget {
-  const AudioPage({super.key});
+import 'package:atividade01/MODELS/Timer_controller.dart';
+import 'package:atividade01/MODELS/sound_controller.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+
+class AudioComponent extends StatefulWidget {
+  final File file;
+  const AudioComponent(this.file);
 
   @override
-  State<AudioPage> createState() => _AudioPageState();
+  State<AudioComponent> createState() => _AudioComponentState(file);
 }
 
-class _AudioPageState extends State<AudioPage> {
+class _AudioComponentState extends State<AudioComponent> {
+  late File file;
+  final controller = TimerController();
+  final recorder = SoundRecorder();
+  AudioPlayer AudioComponentPlayer = AudioPlayer();
+  _AudioComponentState(this.file);
+
   @override
   void initState() {
-    final firebaseMessaging = FCM();
-    firebaseMessaging.setNotifications();
+    _initState();
     super.initState();
+    recorder.init();
   }
 
+  @override
+  void dispose() {
+    recorder.dispose();
+    super.dispose();
+  }
+
+  void _initState() async {
+    
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text('Audio')],
+    return Scaffold(
+      body: Center(
+        child: constroiBotao(),
       ),
+    );
+  }
+
+  Widget constroiBotao() {
+    final gravando = recorder.isRecording;
+    final icon = gravando ? Icons.stop : Icons.mic;
+    final text = gravando ? 'STOP' : 'START';
+    final primary = gravando ? Colors.red : Colors.white;
+    final onPrimary = gravando ? Colors.white : Colors.black;
+
+    return ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+          foregroundColor: onPrimary, minimumSize: Size(175, 50), primary: primary),
+      icon: Icon(icon),
+      label: Text(text),
+      onPressed: () async {
+        await recorder.toggleRecording();
+        final gravando = recorder.isRecording;
+        setState(() {
+          if (gravando) {
+            controller.startTimer();
+          } else {
+            controller.stopTimer();
+          }
+        });
+      },
     );
   }
 }

@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'dart:io';
 import 'package:atividade01/PAGES/Audio_Page.dart';
 import 'package:atividade01/PAGES/Camera_page.dart';
 import 'package:atividade01/PAGES/Foto_Screen.dart';
@@ -41,7 +42,7 @@ class _NavigationState extends State<Navigation> {
         children: [
           HomePage(),
           CameraScreen(),
-          AudioPage(),
+          AudioComponent(File('abc')),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

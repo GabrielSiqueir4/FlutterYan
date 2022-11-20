@@ -9,6 +9,7 @@ import 'package:path/path.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:share_plus/share_plus.dart';
 
+
 @immutable
 class FotoScreen extends StatelessWidget {
   static const _actionTitles = [
