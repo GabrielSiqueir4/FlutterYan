@@ -4,6 +4,7 @@ import 'package:atividade01/PAGES/Audio_Page.dart';
 import 'package:atividade01/PAGES/Camera_page.dart';
 import 'package:atividade01/PAGES/Foto_Screen.dart';
 import 'package:atividade01/PAGES/Home_Page.dart';
+import 'package:atividade01/PAGES/Proxima.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -18,8 +19,6 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
   int paginaAtual = 0;
   late PageController pc;
-
- 
 
   @override
   void initState() {
@@ -43,6 +42,7 @@ class _NavigationState extends State<Navigation> {
           HomePage(),
           CameraScreen(),
           AudioComponent(File('abc')),
+          Proxima(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -71,6 +71,13 @@ class _NavigationState extends State<Navigation> {
               color: Colors.blueAccent,
             ),
             label: 'Audio',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.skip_next_sharp,
+              color: Colors.blueAccent,
+            ),
+            label: 'Proxima',
           ),
         ],
         onTap: (pagina) {

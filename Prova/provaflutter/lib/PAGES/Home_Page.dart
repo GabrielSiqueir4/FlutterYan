@@ -24,38 +24,23 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.black,
-                Colors.blue,
-              ],
-              begin: Alignment.topRight,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              // ignore: prefer_const_literals_to_create_immutables
-              children: [
-                Text(
-                  'Aplicativo para tirar Fotos e Gravar audio.',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-                GestureDetector(onTap: () {
-                  child:
-                  Image.network(
-                    'https://png.pngtree.com/element_our/md/20180314/md_5aa8fcedbdd99.jpg',
-                    width: 200,
-                   
-                    fit: BoxFit.contain,
-                  );
+        padding: EdgeInsets.only(top: 350),
+        child: Center(
+          child: Column(
+            children: [
+              Text(
+                'Aplicativo para tirar Fotos e Gravar audio.',
+                style: TextStyle(color: Colors.black, fontSize: 20),
+              ),
+              SizedBox(height: 40),
+              ElevatedButton.icon(
+                icon: Icon(Icons.arrow_back),
+                label: Text('Sair'),
+                onPressed: () async {
                   context.read<AuthService>().logout();
-                })
-              ],
-            ),
+                },
+              ),
+            ],
           ),
         ),
       ),

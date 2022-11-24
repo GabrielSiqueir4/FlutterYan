@@ -23,6 +23,7 @@ void main() async {
 Future init() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  
 }
 /*
 class MyApp extends StatelessWidget {
