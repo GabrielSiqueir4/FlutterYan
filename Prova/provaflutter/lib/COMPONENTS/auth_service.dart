@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -9,20 +8,17 @@ class AuthException implements Exception {
 
 class AuthService extends ChangeNotifier {
   FirebaseAuth _auth = FirebaseAuth.instance; //recupera instancia do firebase
-  User? usuario; //
+  User? usuario;
   bool isLoading = true; //controle da mudança de telas
 
   AuthService() {
-    //construtor
     _authCheck();
   }
 
   _authCheck() {
-    //
     _auth.authStateChanges().listen((User? user) {
       usuario = (user == null) ? null : user;
-      isLoading =
-          false; //já esta sendo chegado autenciação comm o usuario, então firebase já está carregado
+      isLoading = false;
       notifyListeners();
     });
   }
@@ -31,6 +27,8 @@ class AuthService extends ChangeNotifier {
     usuario = _auth.currentUser;
     notifyListeners();
   }
+
+  //Realiza o registro o usuario
 
   registrar(String email, String senha) async {
     try {
@@ -45,6 +43,7 @@ class AuthService extends ChangeNotifier {
     }
   }
 
+//realiza os logins
   login(String email, String senha) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: senha);
@@ -58,13 +57,14 @@ class AuthService extends ChangeNotifier {
     }
   }
 
+//realiza o logout da aplicção
   logout() async {
     await _auth.signOut();
     _getUser();
   }
 
+//Realiza a alteração da senha
   resetPassword(email, context) async {
     await _auth.sendPasswordResetEmail(email: email);
-   
   }
 }

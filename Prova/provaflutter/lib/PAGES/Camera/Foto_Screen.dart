@@ -41,8 +41,8 @@ class FotoScreen extends StatelessWidget {
   
   void _compartilha(BuildContext context, File file) {
     Share.shareXFiles([XFile(file.path)],
-        text: "Se liga nesta foto que tirei com meu aplicativo!!!!",
-        subject: "PhotoShare");
+        text: "Imagem tirada no aplicativo da Prova De Flutter!",
+        subject: "ProvaFlutter");
   }
 
   @override

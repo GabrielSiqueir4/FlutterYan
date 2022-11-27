@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 Future<void> onBackgroundMessage(RemoteMessage message) async {
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(); //inicializa o firebase
 
   if (message.data.containsKey('data')) {
     final data = message.data['data'];
@@ -15,6 +15,7 @@ Future<void> onBackgroundMessage(RemoteMessage message) async {
 }
 
 class FCM {
+  //Metodo para Realizar a notificação na aplicação
   final _firebaseMessaging = FirebaseMessaging.instance;
 
   final streamCtlr = StreamController<String>.broadcast();
@@ -26,8 +27,9 @@ class FCM {
     forgroundNotification();
     backgroundNotification();
     terminateNotification();
-    final token =
-        _firebaseMessaging.getToken().then((value) => print('Token: $value'));
+    final token = _firebaseMessaging
+        .getToken()
+        .then((value) => print('Token: $value')); //imprime o token no console
   }
 
   forgroundNotification() {

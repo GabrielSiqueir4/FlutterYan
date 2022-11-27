@@ -9,7 +9,7 @@ class Intermediario extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return MaterialApp(
-      title: 'APP',
+      title: 'Prova',
       debugShowCheckedModeBanner: false,
             theme: ThemeData(
         primarySwatch: Colors.indigo,

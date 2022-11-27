@@ -26,9 +26,7 @@ class _LoginPageState extends State<ResetPasswordPage> {
         title: const Text(
           "Recuperar a senha",
           style: const TextStyle(
-            //fontSize: 35,
             fontWeight: FontWeight.bold,
-            //letterSpacing: -1.5
           ),
         ),
       ),
@@ -72,9 +70,6 @@ class _LoginPageState extends State<ResetPasswordPage> {
                         setState(() {
                           enviadoEmail = true;
                         });
-
-                        //_showMyDialog();
-                        //Navigator.of(context).pop();//retorna 1 page
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -100,9 +95,7 @@ class _LoginPageState extends State<ResetPasswordPage> {
                       "Foi enviado um email de redefinição de senha para " +
                           this.email.text,
                       style: const TextStyle(
-                        //fontSize: 35,
                         fontWeight: FontWeight.bold,
-                        //letterSpacing: -1.5
                       ),
                     ))
               ],

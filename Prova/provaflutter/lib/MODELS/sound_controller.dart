@@ -40,7 +40,7 @@ class SoundRecorder {
         .startRecorder(toFile: _recordPath, codec: Codec.aacADTS);
   }
 
-  Future _stop() async {
+  Future _stop() async { 
     if (!_isRecorderInitialized) return;
     await _audioRecorder!.stopRecorder();
 
@@ -48,12 +48,12 @@ class SoundRecorder {
         await FlutterSoundPlayer().openAudioSession();
     myPlayer!.startPlayer(fromURI: _recordPath, codec: Codec.aacADTS);
 
-    Share.shareXFiles([XFile(_recordPath)],
-        text: "Olha esse Audio que eu gravei com meu app Mano!!!!",
-        subject: "PhotoShare");
+    Share.shareXFiles([XFile(_recordPath)], //mensagem que sai no envio do audio
+        text: "Audio Gravado, na aplicação da prova de Flutter!",
+        subject: "ProvaFlutter");
   }
 
-  Future toggleRecording() async {
+  Future toggleRecording() async { //faz a cptura do audio e para a captura
     if (_audioRecorder!.isStopped) {
       await _record();
     } else {

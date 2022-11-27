@@ -1,7 +1,6 @@
 import 'package:atividade01/COMPONENTS/auth_service.dart';
 import 'package:atividade01/COMPONENTS/navigation.dart';
-import 'package:atividade01/PAGES/Home_Page.dart';
-import 'package:atividade01/PAGES/Login_page.dart';
+import 'package:atividade01/PAGES/Login/Login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -21,10 +20,10 @@ class _AuthCheckState extends State<AuthCheck> {
 
     if (auth.isLoading)
       return loading();
-    else if (auth.usuario == null)
+    else if (auth.usuario == null) //faz as validações, para se a pessoa não tiver login, direciona para a tela de login
       return LoginPage();
     else
-      return Navigation();
+      return Navigation();  //se estiver tudo ok, direciona para a aplição
   }
 
   loading() {

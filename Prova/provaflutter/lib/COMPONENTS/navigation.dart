@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:io';
-import 'package:atividade01/PAGES/Audio_Page.dart';
-import 'package:atividade01/PAGES/Camera_page.dart';
-import 'package:atividade01/PAGES/Foto_Screen.dart';
-import 'package:atividade01/PAGES/Home_Page.dart';
-import 'package:atividade01/PAGES/Proxima.dart';
+import 'package:atividade01/PAGES/Audio/Audio_Page.dart';
+import 'package:atividade01/PAGES/Camera/Camera_page.dart';
+import 'package:atividade01/PAGES/Camera/Foto_Screen.dart';
+import 'package:atividade01/PAGES/Home/Home_Page.dart';
+import 'package:atividade01/PAGES/Sheet/SheetsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -34,6 +34,7 @@ class _NavigationState extends State<Navigation> {
 
   @override
   Widget build(BuildContext context) {
+    //Realiza as rotas da aplicação.
     return Scaffold(
       body: PageView(
         controller: pc,
@@ -42,7 +43,7 @@ class _NavigationState extends State<Navigation> {
           HomePage(),
           CameraScreen(),
           AudioComponent(File('abc')),
-          Proxima(),
+          Sheet(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -74,10 +75,10 @@ class _NavigationState extends State<Navigation> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.skip_next_sharp,
+              Icons.format_list_numbered_rounded,
               color: Colors.blueAccent,
             ),
-            label: 'Proxima',
+            label: 'Relatorio',
           ),
         ],
         onTap: (pagina) {

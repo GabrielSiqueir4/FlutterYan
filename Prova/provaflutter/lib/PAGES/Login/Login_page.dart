@@ -1,5 +1,5 @@
 import 'package:atividade01/COMPONENTS/auth_service.dart';
-import 'package:atividade01/PAGES/Reset_pas.dart';
+import 'package:atividade01/PAGES/Login/Reset_pas.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -120,8 +120,11 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Center(
                           child: TextButton(
-                             
-                              child: Text('Esqueceu sua senha ?'), onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ResetPasswordPage()))))
+                              child: Text('Esqueceu sua senha ?'),
+                              onPressed: () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ResetPasswordPage()))))
                     ],
                   ),
                 ),

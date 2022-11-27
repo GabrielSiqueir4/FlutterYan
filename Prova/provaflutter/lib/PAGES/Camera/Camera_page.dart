@@ -1,4 +1,4 @@
-import 'package:atividade01/PAGES/Foto_Screen.dart';
+import 'package:atividade01/PAGES/Camera/Foto_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:path/path.dart';
