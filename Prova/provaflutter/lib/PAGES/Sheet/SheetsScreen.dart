@@ -77,6 +77,9 @@ class _SheetState extends State<Sheet> {
                     };
 
                     await SheetsFlutter.insert([feedback]);
+                    nameController.text = "";
+                    coutryController.text = "";
+                    feedbackController.text = "";
                   },
                   child: Container(
                     decoration: BoxDecoration(
